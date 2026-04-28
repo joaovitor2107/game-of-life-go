@@ -1,6 +1,11 @@
 package main
 
-import "sync"
+import (
+	"math/rand"
+	"sync"
+)
+
+
 
 type CellState int
 const(
@@ -79,4 +84,13 @@ func (g *Grid) AliveCells (i, j int) int {
 	}
 
 	return cellsalive
+}
+
+
+func (g *Grid)randomElements () {
+	for i := range g.cells {
+		for j := range g.cells[i] {
+			g.cells[i][j] = CellState(rand.Intn(2))
+		}
+	}
 }
