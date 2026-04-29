@@ -94,3 +94,10 @@ func (g *Grid)randomElements () {
 		}
 	}
 }
+
+// function to take initial cordinates and make the patterns
+func (g *Grid) applyPattern(p Pattern, x, y int ) {
+	for _, pair := range p {
+		g.cells[pair[0]+x][pair[1]+y] = Alive
+	}
+}
