@@ -8,9 +8,7 @@ import (
 
 func main() {
 	g := NewGrid(40)
-	//g.RandomElements()
-
-	println(BuildOffset(Glider))
+	g.RandomPatterns()
 
 	game := &Game {
 		grid:  g,

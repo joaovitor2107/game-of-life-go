@@ -93,8 +93,25 @@ func (g *Grid) RandomElements () {
 }
 
 // function to take initial cordinates and make the patterns
-func (g *Grid) ApplyPattern(p Pattern, x, y int ) {
+func (g *Grid) ApplyPattern (p Pattern, x, y int) {
 	for _, pair := range p {
 		g.cells[pair[0]+x][pair[1]+y] = Alive
+	}
+}
+
+func (g *Grid) RandomPatterns () {
+	for i := 0; i < len(g.cells); i++ {
+		Ymax := 0
+		for j := 0; j <  len(g.cells[i]); j++ {
+			r := rand.Intn(len(Patterns))
+			x, y := PatternDimensions(Patterns[r])
+			if x + i >= len(g.cells) || y + j >= len(g.cells[i]) {
+				continue
+			}
+			g.ApplyPattern(Patterns[r], i, j)
+			Ymax = max(Ymax, y)
+			j += x
+		}
+		i += Ymax
 	}
 }

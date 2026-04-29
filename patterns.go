@@ -53,7 +53,7 @@ var(
 
 var Patterns = []Pattern{Glider, Block, Boat, Tub, Toad, Blinker}
 
-func BuildOffset (p Pattern) (int, int) {
+func PatternDimensions (p Pattern) (int, int) {
 	Xmax, Ymax := 0, 0
 
 	for _, pair := range p {
