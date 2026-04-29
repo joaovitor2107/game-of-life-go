@@ -14,7 +14,7 @@ type Game struct {
 
 func (g *Game) Update() error {
 	g.tick++
-	if g.tick % 10 == 0{
+	if g.tick % 8 == 0{
 		g.grid.NextGeneration()
 	}
     return nil
