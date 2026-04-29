@@ -7,8 +7,10 @@ import (
 )
 
 func main() {
-	g := newGrid(100)
-	g.randomElements()
+	g := NewGrid(40)
+	//g.RandomElements()
+
+	println(BuildOffset(Glider))
 
 	game := &Game {
 		grid:  g,

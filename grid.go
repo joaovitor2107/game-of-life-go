@@ -5,8 +5,6 @@ import (
 	"sync"
 )
 
-
-
 type CellState int
 const(
 	Dead CellState = 0
@@ -19,7 +17,7 @@ type Grid struct {
 	nextgen [][] CellState
 }
 
-func newGrid (size int) *Grid {
+func NewGrid (size int) *Grid {
 	cells := make([][]CellState, size)
 	nextgen := make([][]CellState, size)
 	for i := range cells {
@@ -86,8 +84,7 @@ func (g *Grid) AliveCells (i, j int) int {
 	return cellsalive
 }
 
-
-func (g *Grid)randomElements () {
+func (g *Grid) RandomElements () {
 	for i := range g.cells {
 		for j := range g.cells[i] {
 			g.cells[i][j] = CellState(rand.Intn(2))
@@ -96,7 +93,7 @@ func (g *Grid)randomElements () {
 }
 
 // function to take initial cordinates and make the patterns
-func (g *Grid) applyPattern(p Pattern, x, y int ) {
+func (g *Grid) ApplyPattern(p Pattern, x, y int ) {
 	for _, pair := range p {
 		g.cells[pair[0]+x][pair[1]+y] = Alive
 	}
